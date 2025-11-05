@@ -3,21 +3,19 @@
 # Desarrollado en Python con Dash y Plotly
 # ======================================================
 
+import os
 import pandas as pd
 import plotly.express as px
 from dash import Dash, dcc, html, dash_table
-import os
-# ============================================
-# CONFIGURACIÓN DE RUTA
-# ============================================
-ruta = os.getcwd()  # usa raw string para evitar errores de barra
 
 # ============================================
-# CARGA DE DATOS
+# CARGA DE DATOS (rutas automáticas para Render)
 # ============================================
-df_mortalidad = pd.read_excel(f"{ruta}\\Anexo1.NoFetal2019_CE_15-03-23.xlsx")
-df_codigos = pd.read_excel(f"{ruta}\\Anexo2.CodigosDeMuerte_CE_15-03-23.xlsx")
-df_divipola = pd.read_excel(f"{ruta}\\Divipola_CE_.xlsx")
+ruta = os.path.dirname(os.path.abspath(__file__))
+
+df_mortalidad = pd.read_excel(os.path.join(ruta, "Anexo1.NoFetal2019_CE_15-03-23.xlsx"))
+df_codigos = pd.read_excel(os.path.join(ruta, "Anexo2.CodigosDeMuerte_CE_15-03-23.xlsx"))
+df_divipola = pd.read_excel(os.path.join(ruta, "Divipola_CE_.xlsx"))
 
 # ============================================
 # LIMPIEZA DE COLUMNAS
