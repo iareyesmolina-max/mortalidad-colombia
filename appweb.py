@@ -6,11 +6,11 @@
 import pandas as pd
 import plotly.express as px
 from dash import Dash, dcc, html, dash_table
-
+import os
 # ============================================
 # CONFIGURACIÓN DE RUTA
 # ============================================
-ruta = r"C:\Users\Maestría IA\Documents\Aplicaciones\Actividad4"  # usa raw string para evitar errores de barra
+ruta = os.getcwd()  # usa raw string para evitar errores de barra
 
 # ============================================
 # CARGA DE DATOS
